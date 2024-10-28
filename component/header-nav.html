@@ -1,0 +1,51 @@
+<div>
+    <div class="header-nav">
+        <div class="header-logo">
+            MOD
+        </div>
+        <div class="header-menu">
+            <a class="header-menu-link" href="">Panel</a>
+            <a class="header-menu-link" href="">Slide-1</a>
+            <a class="header-menu-link" href="">Slide-2</a>
+            <a class="header-menu-link" href="">Slide-3</a>
+            <a class="header-menu-link" href="">Slide-4</a>
+        </div>
+    </div>
+</div>
+
+
+<style>
+    header {
+        background: #222;
+    }
+
+    .header-nav {
+        display: grid;
+        grid-template-columns: 20% auto;
+        align-items: center;
+        gap: 5vw;
+        width: 60vw;
+        margin: 0 auto;
+        min-height: 5vw;
+    }
+
+    .header-logo {
+        font-size: 3vw;
+        font-weight: 900;
+    }
+
+    .header-menu {
+        display: flex;
+        justify-content: flex-end;
+        width: 100%;
+        gap: 2vw;
+
+    }
+
+    a.header-menu-link {
+        font-size: 1vw;
+        color: #fff;
+        text-decoration: none;
+        text-transform: uppercase;
+    }
+</style>

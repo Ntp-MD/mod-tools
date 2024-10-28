@@ -1,0 +1,13 @@
+.clipboard_container {
+    display: flex;
+    gap: 5px;
+}
+
+.clipboard_container {
+    cursor: pointer;
+}
+
+.clipboard_container img {
+    aspect-ratio: 1;
+    width: 50px;
+}
