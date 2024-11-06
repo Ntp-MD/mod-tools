@@ -1,15 +1,22 @@
+$(document).ready(async function () {
+    $('html *').each(async function () {
+        const element = $(this);
+        if (!element.attr('id')) return;
+        const paths = [
+             `/pages/${element.attr('id')}.html`,
+            `/component/${element.attr('id')}.html`,
+           
+            //`https://ntp-md.github.io/mod-tools/component/${element.attr('id')}.html`
+        ];
 
-
-document.addEventListener("DOMContentLoaded", async () => {
-    document.querySelectorAll('html *').forEach(async (element) => {
-        const filePath = `/component/${element.id}.html`;
-        // const filePath = `https://ntp-md.github.io/mod-tools/component/${element.id}.html`;
-        try {
-            const response = await fetch(filePath);
-            if (!response.ok) throw new Error('Failed to fetch');
-            element.innerHTML = await response.text();
-        } catch (error) {
-            console.error('Missing path', error);
+        for (const filePath of paths) {
+            try {
+                const response = await $.get(filePath);
+                element.html(response);
+                break; // Stop trying other paths
+            } catch (error) {
+                console.error(`Failed to load from path: ${filePath}`, error);
+            }
         }
     });
 });

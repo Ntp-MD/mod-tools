@@ -1,14 +1,14 @@
 <div>
     <div class="header-nav">
-        <div class="header-logo">
-            MOD
+        <div class="header-nav-logo">
+
         </div>
-        <div class="header-menu">
-            <a class="header-menu-link" href="">Panel</a>
-            <a class="header-menu-link" href="">Slide-1</a>
-            <a class="header-menu-link" href="">Slide-2</a>
-            <a class="header-menu-link" href="">Slide-3</a>
-            <a class="header-menu-link" href="">Slide-4</a>
+        <div class="header-nav-menu">
+            <a class="header-nav-link" href="">Font Family</a>
+            <a class="header-nav-link" href="">Slide-1</a>
+            <a class="header-nav-link" href="">Slide-2</a>
+            <a class="header-nav-link" href="">Slide-3</a>
+            <a class="header-nav-link" href="">Slide-4</a>
         </div>
     </div>
 </div>
@@ -16,36 +16,31 @@
 
 <style>
     header {
-        background: #222;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        background: var(--color);
+        box-shadow: 0 0 3px #eee;
     }
 
     .header-nav {
         display: grid;
-        grid-template-columns: 20% auto;
+        grid-template-columns: 20% 80%;
         align-items: center;
-        gap: 5vw;
-        width: 60vw;
+        min-height: 120px;
+        width: 80vw;
         margin: 0 auto;
-        min-height: 5vw;
     }
 
-    .header-logo {
-        font-size: 3vw;
-        font-weight: 900;
-    }
-
-    .header-menu {
+    .header-nav-menu {
         display: flex;
         justify-content: flex-end;
-        width: 100%;
-        gap: 2vw;
-
+        gap: 1vw;
     }
 
-    a.header-menu-link {
-        font-size: 1vw;
-        color: #fff;
-        text-decoration: none;
-        text-transform: uppercase;
+    .header-nav-logo {
+        font-size: 3vw;
+        font-weight: 900;
+        color: var(--color2);
     }
 </style>

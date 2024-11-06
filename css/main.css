@@ -1,7 +1,26 @@
 body {
+    --color: #fff;
+    --color2: #222;
+    --color3: #af50f6;
+    
     overflow-x: hidden;
-    background: #222;
-    color: #fff;
+    background: var(--color);
+    color: var(--color2);
     font-family: "Inter", sans-serif;
     margin: 0;
+    min-height: 1500px;
+}
+
+
+a {
+    font-size: clamp(16px, 1vw, 18px);
+    color: var(--color2);
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+section {
+    width: 60vw;
+    margin: 0 auto;
+    padding-top: 5vw;
 }

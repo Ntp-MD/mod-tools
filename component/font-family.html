@@ -1,0 +1,129 @@
+<div>
+    <div class="font-group">
+        <div class="font-items">
+            <span>Noto Sans Thai</span>
+            <div class="font-text">font-family: "Noto Sans Thai", sans-serif;</div>
+            <button class="font-url"
+                data-src="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@100..900&display=swap">Copy
+                Url</button>
+
+        </div>
+        <div class="font-items">
+            <span>Onest</span>
+            <div class="font-text">font-family: "Onest", sans-serif;</div>
+            <button class="font-url"
+                data-src="https://fonts.googleapis.com/css2?family=Onest:wght@100..900&display=swap">Copy
+                Url</button>
+        </div>
+        <div class="font-items">
+            <span>Outfit</span>
+            <div class="font-text">font-family: "Outfit", sans-serif;</div>
+            <button class="font-url"
+                data-src="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap">Copy
+                Url</button>
+        </div>
+        <div class="font-items">
+            <span>Kanit</span>
+            <div class="font-text">font-family: "Kanit", sans-serif;</div>
+            <button class="font-url"
+                data-src="https://fonts.googleapis.com/css2?family=Kanit:wght@100;200;300;400;500;600;700;800;900&display=swap">Copy
+                Url</button>
+
+        </div>
+        <div class="font-items">
+            <span>Prompt</span>
+            <div class="font-text">font-family: "Noto Sans Thai", sans-serif;</div>
+            <button class="font-url"
+                data-src="https://fonts.googleapis.com/css2?family=Prompt:wght@100;200;300;400;500;600;700;800;900&display=swap">Copy
+                Url</button>
+        </div>
+        <div class="font-items">
+            <span>Noto Sans Thai</span>
+            <div class="font-text">font-family: "Noto Sans Thai", sans-serif;</div>
+            <button class="font-url"
+                data-src="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@100..900&display=swap">Copy
+                Url</button>
+        </div>
+
+    </div>
+    <div class="popup" id="copyPopup">
+        <p>URL copied to clipboard!</p>
+    </div>
+
+</div>
+
+
+<style>
+    .font-group {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1vw;
+    }
+
+    .font-items {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        border-radius: 15px;
+        box-shadow: 0 0 3px 0 #ccc;
+        padding: 1vw 2vw;
+        min-height: 8vw;
+        height: fit-content;
+    }
+
+    
+    .font-items:hover {
+        box-shadow: 0 0 3px 0 var(--color3);
+    }
+
+    .font-items span {
+        font-size: 1.5vw;
+        font-weight: 600;
+    }
+
+    .font-items button {
+        cursor: pointer;
+        padding: 10px 15px;
+        border-radius: 5px;
+        background: var(--color2);
+        color: var(--color);
+        text-transform: uppercase;
+        width: fit-content;
+        box-shadow: none;
+    }
+
+    #copyPopup {
+        visibility: hidden;
+        transition: .5s;
+    }
+
+    #copyPopup.show {
+        visibility: visible;
+    }
+</style>
+
+
+<script>
+    $(document).ready(function () {
+        $(".font-url").on("click", function () {
+            const url = $(this).data("src");
+
+            navigator.clipboard.writeText(url).then(() => {
+                showPopup();
+            }).catch(err => {
+                console.error("Failed to copy: ", err);
+            });
+        });
+
+        // Function to show the custom popup
+        function showPopup() {
+            const popup = $("#copyPopup");
+            popup.addClass("show");
+
+            // Hide the popup after 2 seconds
+            setTimeout(() => {
+                popup.removeClass("show");
+            }, 3000);
+        }
+    });
+</script>
