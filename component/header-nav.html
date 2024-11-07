@@ -10,6 +10,13 @@
             <a class="header-nav-link" href="">Slide-3</a>
             <a class="header-nav-link" href="">Slide-4</a>
         </div>
+        <div class="toggle-mode">
+            <div class="switch-mode">
+                <img src="/assests/sun.png">
+                <img src="/assests/moon.png">
+            </div>
+
+        </div>
     </div>
 </div>
 
@@ -25,8 +32,9 @@
 
     .header-nav {
         display: grid;
-        grid-template-columns: 20% 80%;
-        align-items: center;
+        grid-template-columns: 20% 60% 20%;
+        place-content: center;
+        place-items: center;
         min-height: 120px;
         width: 80vw;
         margin: 0 auto;
@@ -43,4 +51,54 @@
         font-weight: 900;
         color: var(--color2);
     }
+
+
+    .toggle-mode {
+        position: fixed;
+        top: -3.5vw;
+        right: -3.5vw;
+    }
+
+
+
+    .switch-mode {
+        position: relative;
+        aspect-ratio: 1;
+        width: 7vw;
+        border-radius: 50%;
+        cursor: pointer;
+        background: var(--color2);
+        box-shadow: 0 0 0 2px var(--color2);
+        transition: .5s;
+    }
+
+
+    .switch-mode img {
+        width: 30px;
+        aspect-ratio: 1;
+        transition: .5s;
+        z-index: 0;
+        border-radius: 50%;
+        user-select: none;
+    }
+
+    .switch-mode img:first-child {
+        position: absolute;
+        bottom: 25px;
+        left: 25px;
+        filter: invert(1);
+    }
+
+    .switch-mode img:last-child {
+        position: absolute;
+        top: 25px;
+        left: 80px;
+        transform: rotate(-160deg);
+    }
+
+    body.dark-mode .switch-mode {
+        transform: rotate(-180deg);
+    }
+
+    body.dark-mode .switch-mode img {}
 </style>

@@ -9,6 +9,17 @@ body {
     font-family: "Inter", sans-serif;
     margin: 0;
     min-height: 1500px;
+    transition: .3;
+}
+
+body.dark-mode {
+    --color: #000 !important;
+    --color2: #fff !important;
+}
+
+body::-webkit-scrollbar {
+    opacity: 0;
+    width: 0;
 }
 
 

@@ -29,12 +29,12 @@
         width: 25vw;
         height: 100%;
         background: transparent;
-        transition: .8s;
+        transition: .5s;
 
     }
 
     #main-nav * {
-        transition: .8s;
+        transition: .5s;
     }
 
     .main-nav {
@@ -55,7 +55,7 @@
         flex-direction: column;
         height: 100%;
         width: 100%;
-        background: #fff;
+        background: var(--color);
     }
 
     .main-nav-toggle {
@@ -65,7 +65,7 @@
         place-content: center;
         place-items: center;
         height: 100%;
-        background: linear-gradient(to right, #fff 0, #fff 50%, transparent 50%, transparent 100%);
+        background: linear-gradient(to right, var(--color) 0, var(--color) 50%, transparent 50%, transparent 100%);
     }
 
     .main-nav-toggle>div:nth-child(2) {
@@ -73,11 +73,12 @@
         text-align: center;
         white-space: nowrap;
         font-weight: 600;
-        background: #fff;
+        background: var(--color);
         padding: 10px;
-        border: 5px solid #000;
+        border: 3px solid var(--color2);
         border-radius: 30px;
         margin: 10px;
+        color: var(--color2);
     }
 
     .main-nav-toggle>div:not(div:nth-child(2)) {
@@ -94,7 +95,7 @@
 
     #main-nav.active .main-nav-toggle>div:nth-child(2) {
         transform: rotate(360deg);
-        border: 2px solid #000;
+        border: 2px solid var(--color2);
     }
 
     #main-nav.active .main-nav-toggle>div:nth-child(2) br {
