@@ -35,3 +35,7 @@ section {
     margin: 0 auto;
     padding-top: 5vw;
 }
+
+.none-local {
+    display: none;
+}
