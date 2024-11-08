@@ -1,3 +1,18 @@
+$(document).ready(function() {
+    // The base URL of your GitHub Pages site
+    var baseURL = 'https://ntp-md.github.io/mod-tools';
+  
+    // Select all elements that might have root-relative URLs
+    $('a, img, link, script, iframe').each(function() {
+      $.each(this.attributes, function() {
+        if (this.specified && this.value.startsWith('/')) {
+          // Prepend the base URL to all root-relative URLs
+          $(this).attr(this.name, baseURL + this.value);
+        }
+      });
+    });
+  });
+
 $(document).on('click', function (e) {
     if ($(e.target).closest('.main-nav-toggle').length) {
         $(' #main-nav ').toggleClass('active');
