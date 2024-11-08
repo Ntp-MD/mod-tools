@@ -31,6 +31,8 @@ $(document).on('click', function (e) {
 
 
 
+
+
 function copyToClipboard(text) {
     const tempInput = document.createElement('input');
     tempInput.style.position = 'absolute';

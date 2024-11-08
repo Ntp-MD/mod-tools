@@ -35,7 +35,28 @@
 
 </body>
 
+
+<script>
+        $(document).ready(function () {
+                // Select all elements with attributes that might contain URLs
+                $('a, img, link, script, iframe').each(function () {
+                        // Check if the attribute value starts with a root path "/"
+                        $.each(this.attributes, function () {
+                                if (this.specified && this.value.startsWith('/')) {
+                                        // Replace root path with the new base URL
+                                        $(this).attr(this.name, 'https://ntp-md.github.io/mod-tools' + this.value);
+                                }
+                        });
+                });
+        });
+</script>
 <script src="/js/main.js"></script>
 <script src="/js/callFecth.js"></script>
+<!--
+<script src="https://ntp-md.github.io/mod-tools/js/main.js"></script>
+<script src="https://ntp-md.github.io/mod-tools/js/callFecth.js"></script>
+
+-->
+
 
 </html>
