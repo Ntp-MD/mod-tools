@@ -14,34 +14,40 @@
         <script src="/js/callFecth.js"></script>
 
 
-
-
         <script>
                 $(document).ready(function () {
+                        // Check if we are on GitHub Pages by checking the hostname
                         if (window.location.hostname === 'ntp-md.github.io') {
+                                // If on GitHub Pages, prepend the repository name to the paths
 
+                                // Update <link> (stylesheets) href
                                 $('link[rel="stylesheet"]').each(function () {
                                         var href = $(this).attr('href');
-                                        // Add /repo/ to the start of the href
+                                        // Add /repo/ to the start of the href if it starts with /
                                         $(this).attr('href', href.replace(/^\/(.*)$/, 'https://ntp-md.github.io/mod-tools/$1'));
                                 });
 
                                 // Update <img> src
                                 $('img').each(function () {
                                         var src = $(this).attr('src');
-                                        // Add /repo/ to the start of the src if it starts with a /
-                                        $(this).attr('src', src.replace(/^\/(.*)$/, 'https://ntp-md.github.io/mod-tools$1'));
+                                        // Add /repo/ to the start of the src if it starts with /
+                                        $(this).attr('src', src.replace(/^\/(.*)$/, 'https://ntp-md.github.io/mod-tools/$1'));
                                 });
 
-                                // Update <script> src
+                                // Update <script> src (including scripts in <head>)
                                 $('script').each(function () {
                                         var src = $(this).attr('src');
-                                        // Add /repo/ to the start of the src if it starts with a /
-                                        $(this).attr('src', src.replace(/^\/(.*)$/, 'https://ntp-md.github.io/mod-tools/$1'));
+                                        // Add /repo/ to the start of the src if it starts with /
+                                        if (src && src.startsWith('/')) {
+                                                $(this).attr('src', src.replace(/^\/(.*)$/, 'https://ntp-md.github.io/mod-tools/$1'));
+                                        }
                                 });
                         }
                 });
         </script>
+
+
+
 </head>
 
 <header id="header-nav">
