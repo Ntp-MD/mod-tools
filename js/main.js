@@ -1,17 +1,38 @@
-$(document).ready(function() {
+
+$(document).ready(function () {
     // The base URL of your GitHub Pages site
     var baseURL = 'https://ntp-md.github.io/mod-tools';
-  
-    // Select all elements that might have root-relative URLs
-    $('a, img, link, script, iframe').each(function() {
-      $.each(this.attributes, function() {
-        if (this.specified && this.value.startsWith('/')) {
-          // Prepend the base URL to all root-relative URLs
-          $(this).attr(this.name, baseURL + this.value);
-        }
-      });
+
+    // Loop through all elements with href or src attributes
+    $('a[href^="/"], img[src^="/"], link[href^="/"], script[src^="/"], iframe[src^="/"], source[src^="/"], audio[src^="/"], video[src^="/"]').each(function () {
+        var $el = $(this);
+
+        // Loop through the attributes of each element
+        $.each(this.attributes, function () {
+            // Check if the attribute is href or src and if it starts with "/"
+            if (this.specified && (this.name === 'href' || this.name === 'src') && this.value.startsWith('/')) {
+                var newURL = baseURL + this.value; // Prepend the base URL to the root-relative URL
+
+                // Update the href or src attribute with the new URL
+                $el.attr(this.name, newURL);
+            }
+        });
     });
-  });
+
+    // For debugging, log image paths to console to see if they're correctly updated
+    $('img[src^="/"]').each(function () {
+        var currentSrc = $(this).attr('src');
+        console.log('Original image src: ', currentSrc);
+
+        // Ensure the src gets updated
+        if (currentSrc.startsWith('/')) {
+            var newSrc = baseURL + currentSrc;
+            $(this).attr('src', newSrc);
+            console.log('Updated image src: ', newSrc);
+        }
+    });
+});
+
 
 $(document).on('click', function (e) {
     if ($(e.target).closest('.main-nav-toggle').length) {
