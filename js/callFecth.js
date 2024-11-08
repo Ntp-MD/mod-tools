@@ -3,10 +3,9 @@ $(document).ready(async function () {
         const element = $(this);
         if (!element.attr('id')) return;
         const paths = [
-             `/pages/${element.attr('id')}.html`,
+            `/pages/${element.attr('id')}.html`,
             `/component/${element.attr('id')}.html`,
-           
-            //`https://ntp-md.github.io/mod-tools/component/${element.attr('id')}.html`
+            `https://ntp-md.github.io/mod-tools/component/${element.attr('id')}.html`
         ];
 
         for (const filePath of paths) {
